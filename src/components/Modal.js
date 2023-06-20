@@ -42,7 +42,9 @@ const Modal = () => {
               </span>
             </div>
             <div className="text-center  text-[1.2rem] md:text-[1.7rem] courseName text-[#0ca6d9] font-semibold  flex  items-center mb-0 md:mb-2 justify-center gap-1">
-              <span className="capitalize">Web Development Basic</span>
+              <span className="capitalize">
+                {studentData.section.course.course_name}
+              </span>
               <span className="text-[1rem] font-[200] md-[1.3rem] courseName">
                 {`(Batch-${studentData.section.batch_no})`}
               </span>
