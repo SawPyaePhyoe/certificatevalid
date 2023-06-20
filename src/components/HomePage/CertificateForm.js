@@ -4,7 +4,7 @@ import { certificateContext } from "@/context/CertificateProvider";
 import Button from "./Button";
 
 const CertificateForm = () => {
-  const [cerID, setcerID] = useState();
+  const [cerID, setcerID] = useState("");
   const [loading, setLoading] = useState(false);
   const {
     getAllCertificate,

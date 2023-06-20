@@ -28,7 +28,10 @@ const Modal = () => {
           <Image
             src={bgImage}
             alt="bg"
+            width={bgImage.width}
+            height={bgImage.height}
             className="absolute top-0 left-0 w-[100%] h-full"
+            priority={true}
           ></Image>
           <div className="z-20">
             <div className="text-center text-[1.4rem] md:text-[2rem] font-[550]">
