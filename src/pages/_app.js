@@ -1,6 +1,6 @@
 import "@/styles/globals.css";
-import CertificateProvider from "@/Context/CertificateProvider";
-import ModalProvider from "@/Context/ModalProvider";
+import CertificateProvider from "@/context/CertificateProvider";
+import ModalProvider from "@/context/ModalProvider";
 
 export default function App({ Component, pageProps }) {
   return (

@@ -2,9 +2,9 @@ import bgImage from "../../public/images/IMG_20230616_135635_157.jpg";
 import Image from "next/image";
 import { useContext, useEffect } from "react";
 import { MdOutlineClose } from "react-icons/md";
-import { certificateContext } from "@/Context/CertificateProvider";
+import { certificateContext } from "@/context/CertificateProvider";
 import PartyCracker from "./PartyCracker";
-import { modalContext } from "@/Context/ModalProvider";
+import { modalContext } from "@/context/ModalProvider";
 
 const Modal = () => {
   const { studentData, modal, setmodal } = useContext(certificateContext);

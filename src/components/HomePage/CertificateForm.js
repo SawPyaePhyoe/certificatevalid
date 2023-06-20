@@ -1,6 +1,6 @@
 import { useContext, useEffect, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { certificateContext } from "@/Context/CertificateProvider";
+import { certificateContext } from "@/context/CertificateProvider";
 import Button from "./Button";
 
 const CertificateForm = () => {
