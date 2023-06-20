@@ -1,44 +1,68 @@
-import React, { useContext } from "react";
-import { MdOutlineClose } from "react-icons/md";
-import bg from "/public/assets/bg.jpg";
-import { CertificateContext } from "@/context/CertificateProvider";
+import bgImage from "../../public/images/IMG_20230616_135635_157.jpg";
 import Image from "next/image";
+import { useContext, useEffect } from "react";
+import { MdOutlineClose } from "react-icons/md";
+import { certificateContext } from "@/Context/CertificateProvider";
+import PartyCracker from "./PartyCracker";
+import { modalContext } from "@/Context/ModalProvider";
 
 const Modal = () => {
-  const { modalOpen, setModalOpen } = useContext(CertificateContext);
-  console.log(modalOpen);
+  const { studentData, modal, setmodal } = useContext(certificateContext);
+  const { dateHandler, getYear } = useContext(modalContext);
+
+  const ModalHandler = () => {
+    setmodal(!modal);
+  };
+
   return (
-    !modalOpen && (
-      <>
-        <div className="w-full fixed inset-0 flex justify-center items-center backdrop-blur-sm bg-[#00000054] ">
-          <div className="relative w-[90%] max-w-[600px] bg-cover rounded-[10px] flex flex-col justify-center items-center overflow-hidden">
-            <Image src={bg} alt="bg" className="relative" />
-            <div
-              className="absolute top-0 right-0 p-[2px] md:p-[4px] bg-[red] text-white text-[13px] min-[425px]:text-[1rem] md:text-[1.5rem] cursor-pointer"
-              onClick={() => setModalOpen(!modalOpen)}
-            >
-              <MdOutlineClose />
+    modal &&
+    studentData && (
+      <div className="fixed inset-0 bg-black bg-opacity-25 backdrop-blur-sm flex justify-center items-center z-50">
+        <div className="relative flex justify-center items-center max-w-[640px] w-full rounded-lg shadow-lg mx-3 my-[3rem] md:m-[3rem] h-[50vh] ">
+          <button
+            className="text-white absolute top-0 right-0 p-[.5rem]  bg-red-500 mb-4 hover:text-red-700  hover:bg-transparent transition-all z-20"
+            onClick={ModalHandler}
+          >
+            <MdOutlineClose />
+          </button>
+          <Image
+            src={bgImage}
+            alt="bg"
+            className="absolute top-0 left-0 w-[100%] h-full"
+          ></Image>
+          <div className="z-20">
+            <div className="text-center text-[1.4rem] md:text-[2rem] font-[550]">
+              <span className="studentName">{studentData.trainee.name}</span>
+              <span className="text-[1.2rem] studentName md:text-[1.5rem] opacity-60 font-[200] ">
+                {" "}
+                has completed{" "}
+              </span>
             </div>
-            <div className="absolute flex flex-col items-center">
-              <p className="text-[15px] min-[425px]:text-[18px] md:text-[22px]">
-                <span className="text-[15px] min-[425px]:text-[18px] md:text-[30px] font-[800] mr-[8px]">
-                  Thin Thiri Hlaing
-                </span>
-                has completed
-              </p>
-              <p className="text-[15px] min-[425px]:text-[18px] md:text-[20px] font-[500] text-[#171773cc] my-[10px]">
-                <span className="text-[15px] min-[425px]:text-[18px] md:text-[25px] mr-[5px]">
-                  Web Development Basic
-                </span>
-                (Batch- 5)
-              </p>
-              <p className="text-[9px]  min-[425px]:text-[12px] md:text-[19px]">
-                Feb-2 to April-30,2023 at EIT Learning Campus.
-              </p>
+            <div className="text-center  text-[1.2rem] md:text-[1.7rem] courseName text-[#0ca6d9] font-semibold  flex  items-center mb-0 md:mb-2 justify-center gap-1">
+              <span className="capitalize">Web Development Basic</span>
+              <span className="text-[1rem] font-[200] md-[1.3rem] courseName">
+                {`(Batch-${studentData.section.batch_no})`}
+              </span>
+            </div>
+            <div className="text-center text-[1.1rem] md:text-[1.2rem] opacity-80 flex flex-col md:flex-row  justify-center mb-3 ">
+              <div>
+                <span>{`${dateHandler(
+                  studentData.section.section_start_date
+                )} to `}</span>
+                <span>{`${dateHandler(
+                  studentData.section.section_end_date
+                )}, `}</span>
+                <span>{getYear(studentData.section.section_end_date)}</span>
+              </div>
+              <div className="">
+                &nbsp;at <span className="font-[600]">EIT</span> Learning Campus
+              </div>
             </div>
           </div>
         </div>
-      </>
+
+        <PartyCracker />
+      </div>
     )
   );
 };
