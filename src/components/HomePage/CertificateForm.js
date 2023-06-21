@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
 import { certificateContext } from "@/context/CertificateProvider";
 import Button from "./Button";
@@ -40,7 +40,7 @@ const CertificateForm = () => {
           <input
             type="text"
             readOnly={loading}
-            placeholder="Enter Certificate ID"
+            placeholder="Enter Verification Code"
             className={`w-[75%] border-2 ${
               loading && "focus:outline-none"
             } rounded-md px-3`}
@@ -52,10 +52,7 @@ const CertificateForm = () => {
           {loading ? (
             <Button />
           ) : (
-            <button
-              style={{ backgroundColor: loading ? "red" : null }}
-              className="bg-[#252960] hover:bg-[#192084] transition-all duration-[.5s] rounded-md text-white border-[#222557] py-[0.375rem] px-[0.75rem] flex items-center gap-1 text-[16px] leading-[1.5] font-[600]"
-            >
+            <button className="bg-[#093a8b] hover:bg-[#245dbc] transition-all duration-[.5s] rounded-md text-white border-[#093a8b] py-[0.375rem] px-[0.75rem] flex items-center gap-1 text-[16px] leading-[1.5] font-[600]">
               <AiOutlineSearch /> Find
             </button>
           )}

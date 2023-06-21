@@ -36,7 +36,7 @@ const Modal = () => {
           <div className="z-20">
             <div className="text-center text-[1.4rem] md:text-[2rem] font-[550]">
               <span className="studentName">{studentData.trainee.name}</span>
-              <span className="text-[1.2rem] studentName md:text-[1.5rem] opacity-60 font-[200] ">
+              <span className="text-[1.2rem] studentName md:text-[1.5rem] opacity-[0.75] font-[200] ">
                 {" "}
                 has completed{" "}
               </span>
