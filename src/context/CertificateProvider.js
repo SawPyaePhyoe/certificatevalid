@@ -7,6 +7,8 @@ const CertificateProvider = ({ children }) => {
   const [studentData, setStudentData] = useState(null);
   const [error, setError] = useState(false);
   const [invalidID, setInvalidID] = useState(false);
+  const key = process.env.NEXT_PUBLIC_KEY;
+  console.log(key);
 
   const ErrorHandler = () => {
     setError(false);
@@ -18,7 +20,7 @@ const CertificateProvider = ({ children }) => {
       `https://api.eitlearningcampus.org/api/v1/public/certificate/check/${cerId}`,
       {
         headers: {
-          Key: "I069fUF1Xg69OI2JWTrRPWLbMUB1p7NCUsTJc+sbR0k=",
+          Key: key,
         },
       }
     );
