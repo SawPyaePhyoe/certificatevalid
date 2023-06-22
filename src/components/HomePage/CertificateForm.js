@@ -8,12 +8,12 @@ const CertificateForm = () => {
   const [cerID, setcerID] = useState("");
   const [loading, setLoading] = useState(false);
   const {
-    getAllCertificate,
     error,
     setError,
     invalidID,
     setInvalidID,
     ErrorHandler,
+    getAllCertificate,
   } = useContext(certificateContext);
 
   const SubmitHandler = async (e) => {
