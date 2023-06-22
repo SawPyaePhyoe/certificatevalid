@@ -1,7 +1,8 @@
 import { useContext, useState } from "react";
 import { AiOutlineSearch } from "react-icons/ai";
-import { certificateContext } from "@/context/CertificateProvider";
+
 import Button from "./Button";
+import { certificateContext } from "@/Context/CertificateProvider";
 
 const CertificateForm = () => {
   const [cerID, setcerID] = useState("");
