@@ -10,8 +10,6 @@ const CertificateProvider = ({ children }) => {
   const [studentData, setStudentData] = useState(null);
   const [error, setError] = useState(false);
   const [invalidID, setInvalidID] = useState(false);
-  const key = process.env.NEXT_PUBLIC_KEY;
-  console.log(key);
 
   const ErrorHandler = () => {
     setError(false);
