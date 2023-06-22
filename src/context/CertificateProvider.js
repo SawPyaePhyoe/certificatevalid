@@ -3,6 +3,9 @@ import { createContext, useState } from "react";
 export const certificateContext = createContext();
 
 const CertificateProvider = ({ children }) => {
+  const key = process.env.NEXT_PUBLIC_KEY;
+  console.log(key);
+
   const [modal, setmodal] = useState(false);
   const [studentData, setStudentData] = useState(null);
   const [error, setError] = useState(false);
